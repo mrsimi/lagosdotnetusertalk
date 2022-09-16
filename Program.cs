@@ -1,4 +1,12 @@
+using lagosdotnetusertalk.Shared.Extensions;
+using Microsoft.AspNetCore.Mvc.Razor;
+
 var builder = WebApplication.CreateBuilder(args);
+
+//configure route 
+builder.Services.Configure<RazorViewEngineOptions>(options => {
+    options.ViewLocationExpanders.Add(new CustomViewLocationExpander());
+});
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -22,6 +30,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Welcome}/{action=Index}/{id?}");
 
 app.Run();
