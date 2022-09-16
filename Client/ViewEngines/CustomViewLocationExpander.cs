@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Razor;
 
-namespace lagosdotnetusertalk.Shared.Extensions
+namespace lagosdotnetusertalk.Client.ViewEngines
 {
     public class CustomViewLocationExpander : IViewLocationExpander
     {
@@ -14,13 +14,12 @@ namespace lagosdotnetusertalk.Shared.Extensions
             return new string[]
             {
                 "Client/{1}/UI/{0}.cshtml",
-                "Shared/Views/{0}.cshtml"
+                "Client/Layouts/{0}.cshtml"
             };
         }
 
         public void PopulateValues(ViewLocationExpanderContext context)
         {
-            
         }
     }
 }
